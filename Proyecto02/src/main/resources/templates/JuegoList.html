@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/custom.css}" />
+
+<title>Proyecto 02</title>
+</head>
+<body>
+
+	<div class="container" id="contenedor">
+		<div align="center">
+			<h1>
+				Proyecto 02<br />
+			</h1>
+
+			<h2>LISTADO DE JUEGOS</h2>
+			<p>Estos son los datos de la tabla de juegos</p>
+
+			<table border="1">
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Plataforma</th>
+					<th>Fecha</th>
+					<th>Género</th>
+                    <th>Editor</th>
+                    <th>Ventas EU</th>
+				</tr>
+				<tr th:each="juego, status : ${juegoList}">
+					<td th:text="${status.index + 1}" />
+					<td th:text="${juego.id}" />
+					<td th:text="${juego.nombre}" />
+					<td th:text="${juego.plataforma}" />
+                    <td th:text="${juego.fecha}" />
+					<td th:text="${juego.genero}" />
+                    <td th:text="${juego.editor}" />
+					<td th:text="${juego.ventas}" />
+                </tr>
+            </table>
+                <button> <a th:href="@{/edit(id=${juego.id})}" type="button" class="btn btn-info">Modificar</a></button>
+			    <button type="button" class="btn btn-info">Eliminar</button> |
+				
+
+			
+			<p>
+				<a href="new">Haz clic para insertar un NUEVO JUEGO</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>
