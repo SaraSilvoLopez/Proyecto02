@@ -19,7 +19,7 @@ import com.example.demo.model.Juego;
  */
 @Service
 public class JuegoServiceImpl implements JuegoService {
-	
+
 	/**
 	 * Instancio juegoDAO. Inyeccion dependencia
 	 */
@@ -66,16 +66,55 @@ public class JuegoServiceImpl implements JuegoService {
 	public List<Juego> findAll() {
 		return juegoDAO.findAll();
 	}
-	
-	
+
 	/**
 	 * Implementación/Sobrescritura del método findByGeneroPlataforma
 	 *
 	 * @return
 	 */
 	@Override
-	public List<Juego> findByGeneroPlataforma(){
+	public List<Juego> findByGeneroPlataforma() {
 		return juegoDAO.findByGeneroPlataforma();
+	}
+
+	/**
+	 * Implementación/Sobrescritura del método listaEditores
+	 *
+	 * @return
+	 */
+	@Override
+	public List<String> listaEditores() {
+		return juegoDAO.listaEditores();
+	}
+
+	/**
+	 * Implementación/Sobrescritura del método listaGeneros
+	 *
+	 * @return
+	 */
+	@Override
+	public List<String> listaGeneros() {
+		return juegoDAO.listaGeneros();
+	}
+
+	/**
+	 * Implementación/Sobrescritura del método listaPlataformas
+	 *
+	 * @return
+	 */
+	@Override
+	public List<String> listaPlataformas() {
+		return juegoDAO.listaPlataformas();
+	}
+
+	/**
+	 * Implementación/Sobrescritura del método saveAll
+	 *
+	 * @param List<Juego> listaJuegos
+	 */
+	@Override
+	public void saveAll(List<Juego> listaJuegos) {
+		juegoDAO.saveAll(listaJuegos);
 	}
 
 }
