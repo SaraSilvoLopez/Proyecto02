@@ -1,0 +1,39 @@
+La persona que comparte:
+
+Accede a tu BBDD
+Administration -> Users and Privileges
+En user Accounts (cuadrado izquierda): Seleccionar root
+En la pestaña Login: modificar Limit to Hosts Matching = %
+En la pestaña Administrative Roles: verificar que la opción DBA está seleccionada
+Apply
+***Ver img 1
+
+Ir a la home de Workbench (símbolo casita)
+MySQL Conecctions (+): para abrir la ventana Setup New Connection
+Connection Name: laquequieras
+Pestaña Parameters: Hostname: IP del escritorio remoto "local"/"en red" (lo que viene a ser el que es visible entre nosotras" * ver conseguir IP
+(por defecto la contraseña es root)
+Test Connection
+Ya está
+
+Conseguir IP
+Abrir cmd en el escritorio remoto
+comando: ipconfig /all
+IP = Dirección IPv4
+
+
+
+Las personas que acceden:
+
+Página inicio Workbench
+MySQL Conecctions (+) : para abrir la ventana Setup New Connection
+Connection Name: laquequieras
+Pestaña Parameters: Hostname: la de la persona que comparte
+(por defecto la contraseña es root)
+Test Connection
+Ya está
+
+
+
+
+
