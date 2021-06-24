@@ -14,20 +14,32 @@ import com.example.demo.model.Juego;
  * @version 1.0
  */
 public interface JuegoService {
-	
-	//Para modificar y añadir juego
+
+	// Para modificar y añadir juego
 	public void save(Juego juego);
-	
-	//Para recuperar un juego y poder modificarlo
+
+	// Para recuperar un juego y poder modificarlo
 	public Juego getById(int id);
-	
-	//Para eliminar juego por id
+
+	// Para eliminar juego por id
 	public void deleteById(int id);
-	
-	//Para listar todos los juegos
+
+	// Para listar todos los juegos
 	public List<Juego> findAll();
-	
-	//Merodo propio para listar juegos de genero = plataforma
+
+	// Metodo propio para listar juegos de genero = plataforma
 	public List<Juego> findByGeneroPlataforma();
+
+	// Metodo propio para lista de editores
+	public List<String> listaEditores();
+
+	// Metodo propio para lista de generos
+	public List<String> listaGeneros();
+
+	// Metodo propio para lista de plataformas
+	public List<String> listaPlataformas();
+
+	// Para guardar todo
+	public void saveAll(List<Juego> listaJuegos);
 
 }
