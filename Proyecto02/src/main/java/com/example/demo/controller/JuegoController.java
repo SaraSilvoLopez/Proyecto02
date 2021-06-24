@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.example.demo.model.Juego;
 import com.example.demo.service.JuegoService;
+import com.example.demo.utilities.LeerFichero;
 
 /**
  * @ClassName JuegoController
@@ -44,8 +44,11 @@ public class JuegoController {
 	 * @return JuegoForm 
 	 */
 	@GetMapping("/new")
-	public String newJuego(Juego juego) {
+	public String newJuego(Juego juego, Model m) {
 		log.info("----- Dentro de newJuego");
+		m.addAttribute("listaEditores", service.listaEditores());
+		m.addAttribute("listaGeneros", service.listaGeneros());
+		m.addAttribute("listaPlataformas", service.listaPlataformas());
 		return "JuegoForm";
 	}
 	
@@ -86,6 +89,10 @@ public class JuegoController {
 	public String editJuego(@RequestParam("id") int id, Model m) {
 		log.info("----- Dentro de editJuego");
 		m.addAttribute("juego", service.getById(id));
+		m.addAttribute("listaEditores", service.listaEditores());
+		m.addAttribute("listaGeneros", service.listaGeneros());
+		m.addAttribute("listaPlataformas", service.listaPlataformas());
+		
 		return "JuegoForm";
 	}
 
@@ -101,6 +108,17 @@ public class JuegoController {
 		service.deleteById(id);
 		return ("redirect:/");
 	}
+	
+	/**
+	* @param m
+	* @return new ModelAndView
+	*/
+	@GetMapping("/cargafichero")
+	public ModelAndView cargaFichero(Model m) {
+		log.info("----- Dentro de cargaFichero");
+		service.saveAll(LeerFichero.leerDatosFichero());
+		return new ModelAndView("redirect:/");
+	}
 
 	/**
 	 * 
@@ -108,9 +126,10 @@ public class JuegoController {
 	 * @return JuegoList
 	 */
 	@GetMapping("/listGeneroPlataforma")
-	public String listGeneroPlataforma() {
+	public String listGeneroPlataforma(Model m) {
 		log.info("----- Dentro de findByGeneroPlataforma");
-		service.findByGeneroPlataforma();
-		return "JuegoListGeneroPlataforma";
+		m.addAttribute("juegoList", service.findByGeneroPlataforma());
+		//return "JuegoListGeneroPlataforma";
+		return "JuegoList";
 	}
 }
