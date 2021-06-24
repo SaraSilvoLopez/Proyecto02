@@ -14,6 +14,7 @@ Connection Name: laquequieras
 Pestaña Parameters: Hostname: IP del escritorio remoto "local"/"en red" (lo que viene a ser el que es visible entre nosotras" * ver conseguir IP
 (por defecto la contraseña es root)
 Test Connection
+OK
 Ya está
 
 Conseguir IP
@@ -31,6 +32,7 @@ Connection Name: laquequieras
 Pestaña Parameters: Hostname: la de la persona que comparte
 (por defecto la contraseña es root)
 Test Connection
+OK
 Ya está
 
 
