@@ -19,7 +19,7 @@ import com.example.demo.model.Juego;
 @Repository
 public interface JuegoDao extends JpaRepository<Juego, Integer> {
 
-	@Query("FROM Juego WHERE genero='Platform'")
+	@Query("FROM Juego WHERE genero = 'Platform'")
 	List<Juego> findByGeneroPlataforma();
 
 	@Query("SELECT DISTINCT editor FROM Juego")
