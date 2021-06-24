@@ -30,19 +30,22 @@
 				</tr>
 				<tr th:each="juego, status : ${juegoList}">
 					<td th:text="${status.index + 1}" />
-					<td th:text="${juego.id}" />
+					<!--   <td th:text="${juego.id}" />  -->
 					<td th:text="${juego.nombre}" />
 					<td th:text="${juego.plataforma}" />
                     <td th:text="${juego.fecha}" />
 					<td th:text="${juego.genero}" />
                     <td th:text="${juego.editor}" />
 					<td th:text="${juego.ventas}" />
-                </tr>
-            </table>
-                <button> <a th:href="@{/edit(id=${juego.id})}" type="button" class="btn btn-info">Modificar</a></button>
-			    <button type="button" class="btn btn-info">Eliminar</button> |
-				
+					<td><a th:href="@{/edit(id=${juego.id})}">Modificar</a> | <a
 
+                        th:href="@{/delete(id=${juego.id})}">Eliminar</a></td>
+
+                </tr>
+
+
+ 
+            </table>
 			
 			<p>
 				<a href="new">Haz clic para insertar un NUEVO JUEGO</a>
