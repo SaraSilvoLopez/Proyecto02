@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+    <title>Formulario Juego</title>
+</head>
+
+
+<body>
+
+    <h1>Formulario de Juegos</h1>
+
+    <form method="post" 
+			th:object="${juego}" 
+			th:action="@{/save}">
+
+        <input id="id" th:field="*{id}" type="hidden" />
+
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Nombre:</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{nombre}" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <label for="year">Año:</label>
+                </td>
+                <td>
+                    <input type="number" th:field="*{fecha}" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="publisher">Editor:</label>
+                </td>
+                <td>
+                    <select name="editor" id="editor" th:field="*{editor}"> 
+                       
+                    </select>   
+                   
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="genre">Genero:</label>
+                </td>
+                <td>
+                    <select name="genre" id="genre" th:field="*{genero}"> 
+                       
+                    </select>                  
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="platform">Plataforma:</label>
+                </td>
+                <td>
+                    <select name="platform" id="platform" th:field="*{plataforma}" > 
+                                        
+                    </select>                    
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="sales">Número de ventas:</label>
+                </td>
+                <td>
+                    <input type="number" th:field="*{ventas}" />
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><input type="submit"
+                    value="Guardar Juego"></td>
+            </tr>
+
+        </table>
+
+    </form>
+
+</body>
+
+
+</html>
