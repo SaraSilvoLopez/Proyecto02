@@ -22,4 +22,12 @@ public interface JuegoDao extends JpaRepository<Juego,Integer> {
 	@Query("FROM Juego WHERE genero='Platform'")
 	List<Juego> findByGeneroPlataforma();
 	
+	@Query("SELECT DISTINCT editor FROM Juego")
+	List<String> listaEditores();
+	
+	@Query("SELECT DISTINCT genero FROM Juego")
+	List<String> listaGeneros();
+	
+	@Query("SELECT DISTINCT plataforma FROM Juego")
+	List<String> listaPlataformas();
 }
