@@ -1,0 +1,53 @@
+.img{ 
+    width:25px;
+    height:25px;
+}
+header{
+	padding-left: 50px;
+	padding-right: 50px;
+	align-content: center;
+ }
+ .header{
+ 	height: 350px;
+ 	width:100%;
+ 	align-content: center;
+ }
+ .mando{
+ 	align-content: center;
+ 	width: 40px;
+ 	height: 40px;
+ }
+ .gameover{
+ 	align-content: center;
+ 	width: 40px;
+ 	height: 40px;
+ }
+ .fondo{
+ 	 align-content: center;
+ }
+a{
+	color: #FFF;
+}
+h1{
+	margin-top:-70px;
+	padding-left: 20px;
+}
+.logo{
+    background-image: url(../img/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 150px; 
+}
+.titulo{
+	margin-bottom: 50px;
+	position: absolute;
+	align-content:flex-end;
+	padding-top: 330px;
+}
+body{
+    font-family: 'Orbitron', sans-serif;
+}
+@font-face {
+    font-family: Orbitron;
+    src: url('../fonts/Orbitron-VariableFont_wght.ttf');
+}

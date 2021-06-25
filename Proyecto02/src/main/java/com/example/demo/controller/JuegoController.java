@@ -130,6 +130,6 @@ public class JuegoController {
 		log.info("----- Dentro de findByGeneroPlataforma");
 		m.addAttribute("juegoList", service.findByGeneroPlataforma());
 		//return "JuegoListGeneroPlataforma";
-		return "JuegoList";
+		return "JuegoListGeneroPlataforma";
 	}
 }
