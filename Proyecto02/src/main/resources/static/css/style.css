@@ -1,0 +1,23 @@
+body {
+	padding: 5% 40% 30% 20%;
+	font-weight: 800;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 20;
+	background-image:url(https://images.hdqwalls.com/download/mario-minimalism-4k-1400x900.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #8EB8F1;
+}
+
+
+h1 {
+	color: rgb(152, 12, 152);
+}
+
+.btn-primary {
+	margin-top: 20px;
+	background-color:rgb(152, 12, 152);
+	border-color:rgb(152, 12, 152);
+}
