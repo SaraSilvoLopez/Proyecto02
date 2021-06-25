@@ -1,8 +1,16 @@
 package com.example.demo.controller;
 
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -72,9 +80,21 @@ public class JuegoController {
 	 * @return JuegoList
 	 */
 	@GetMapping("/")
-	public String listJuego(Model m) {
+	public String listJuego(@RequestParam Map<String, Object> params, Model m) {
 		log.info("----- Dentro de listJuego");
-		m.addAttribute("juegoList", service.findAll());
+		int page = params.get("page") !=null ? (Integer.valueOf(params.get("page").toString())-1) : 0;
+		PageRequest pageRequest = PageRequest.of(page,  10);
+		Page<Juego> pagePersona = service.getAll(pageRequest);
+		int totalPage = pagePersona.getTotalPages();
+		if(totalPage>0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			m.addAttribute("pages", pages);
+		}
+		m.addAttribute("juegoList", pagePersona.getContent());
+		m.addAttribute("current", page +1);
+		m.addAttribute("next", page +2);
+		m.addAttribute("prev", page);
+		m.addAttribute("last", totalPage);
 		return "JuegoList";
 	}
 	

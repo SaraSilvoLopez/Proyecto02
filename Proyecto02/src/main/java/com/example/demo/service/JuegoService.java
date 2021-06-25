@@ -2,6 +2,9 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.example.demo.model.Juego;
 
 /**
@@ -41,5 +44,8 @@ public interface JuegoService {
 
 	// Para guardar todo
 	public void saveAll(List<Juego> listaJuegos);
+	
+	//Para paginación del listado
+	public Page<Juego> getAll(Pageable pageable);
 
 }
